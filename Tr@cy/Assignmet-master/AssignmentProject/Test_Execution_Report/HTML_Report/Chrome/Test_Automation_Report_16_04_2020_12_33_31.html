@@ -1,0 +1,531 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/6d3843c29c354373fafad29c03a1a89b7e06c374/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Cucumber Framework</title>
+
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1)" view='testrunner-logs-view'><i class='material-icons'>note</i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>Automation - Test Report</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Apr 16, 2020 12:33:32 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>v3.0.6</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@sanitycheck</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Demo & Analysis Script</span>
+						<span class='test-time'>Apr 16, 2020 12:33:32 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='2' status='fail'>
+	<span class='duration right label'>0h 0m 12s+923ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Glasvezel Aansluiting 1 Gbps onnet Korting eenmalig 24 maanden 1 N 50%</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@sanitycheck</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Glasvezel Aansluiting 1 Gbps onnet Korting eenmalig 24 maanden 1 N 50%</span>
+			
+				<ul class='steps'>
+					<li test-id='4' class='node given fail' status='fail'><b>Given</b>
+						<span class="bdd-step-name">Given User launched browser and logged in to Tracy successfully</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="data:image/dib;base64,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sg2/qM/rQ9fuBdzM0XRG1v4fR2yuI5RM0kTN0yCRz7da0LNfGc8sFtcm2s4IiN9wgV2kA9iTz+ArqLS1gsrWO2toxHDGMKo7VNTvqLoczqek3tx420zUIod1rBHtkk3KMH5u2c9x2o1TSr248baZqEUO61gj2ySb1G0/N2znuK6aiktLFN3uFFFFAgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAqGa6t7do1nniiaVtsYdwpc+gz1NTVz/jaza50CSeHie0YXEZHUbev6ZovYaVzauLq3tED3M8UKE7Q0jhQT6c96lrkb26j17W9DijO63ji+3yr+Hy/r/Ook1PXrzSJ/EFvewRW0ZZ0sjAGDIp53N1zwen6UeotztKK4jVvFjSXVpBFfrpUMlstw87QecxLDhAMfrTW8T6jc+HLO4tJohdm+Fq77Pkk9DgjIB49D9KLf1+Af1+p3NFU9Nt7u2tyl9ffbJSxPmeUI8D0wK4/XfEWpW1zeS2epq4tZQptre08xFXPWSQgYJ5GBnnigNzvKKgt5jPYxTkbTJGHwO2RmuVj1zUW+H82pm4/0xWIEmxeP3mOmMdPah6XCPvWt1Ow6VHb3EN1EJbeaOaM8B42DA/iKjtJHm0yCWQ5d4VZj6krXC6G2t23hE6hZX0MUFq0ji3MIbzQGy25jyO/T86Ho2mC1SaPQ6KraddC+0+2uwu0TRrJt9MjOKzPFGoXWnxWDWsvlma8jif5Qcqc5HIoejsC11Nyiuev7+9Hi6302C48uCWzd8BFOH+bDZI9hx0rCuvFWqJo+nmFs3qPIbzCKfljODkY4zkdMUA/6/M76isPStRuNR17UNk2dPt0REUAYZyMk568dOtQate6lc+IodG026WyxB9oknMQkJGcBQDx/n8wDo6TpXFHxJqen2uuSXrxTzWkyRQhU2oC2efXHfk0ug+JJZtYjsJNWTVI7iJjvFsYTE4GcdBkYzz/Lub7f11A7C3uIbqIS280c0Z4DxsGB/EVLXnmhtrdt4ROoWV9DFBatI4tzCG80BstuY8jv0/OtSTVdW1PWrK2068WzhurBbhi0SyFCT1Gep6D060AdfUU9xBbIHuJo4UJChpGCgk9BzWLo97ev4h1Owubkzx2scWwlFXkr8x4Hc1gtrF7d+EI7q6kjmm+3iPMkKMNufQjH49aFr/XnYHor/wBbXO4S4gknkgSaNpY8b4wwLLnpkdqlrz3U9cbRfFOsiFR59wIUSR/uR8DLN9M1qeINaudHj06wfUxHLOpaa/aAPtA9EUY5PH0/OknomNqzsddRXCL4pvJPDeqvDepNcWToI7pYdvmIzcEqRgHqOn+NXtTuPEOm6H9rN4biWZ0ZzDaqfsqYJYqP4u3J/TrTEdbRXL6Jql1cafqMn9r22orHGXilSPy5UOD95MYAyOPx/DMGreIIdCsNbl1CGSN3VHtvIUbgWIyW9fpgf1OtvT8Qud3RXG+Jdav4L+5istTETW8QcW9ta+e7cclyRhAOO/SpLrX7qbQ9KmF9BYTXgO9lhMsjEcYRMHOT69M0dLh1sddRXBw+JNVbwxq0zzMt3ZTKiSyQqj4LfxJyAatyXniKDV7GzfUbdjqMJI/0cYtyBkkc5b8T+FH9fqHS52NFYPhi+vbh9RtNQnW4ms5/LEwQJvHbgcVneJvEUlrrKacmorpkaxeY9wbfzixPRQuPxzR2A6+iuIfxPf3HhFLy2mjF4l2LdpFT5X98EcZBH/1q0ba71ex8UW9hf3sV3DdxNIAsIj8ojJwMdR9SaOtv62uK/wDX4HTUVi+I766037BdQybbcXKx3CbRgo3GckcYPp61hx+KruPUtXaZv9DSKU2eVUAtGcHB6nJ9aVxnbUVxd5quqw22n276sIryW3850htfPnlY87QgAUADvkdKS38T6jN4XtZR5f2+5uvsiysuAp/vlfX26fyqra2/rsFzs3ZUQu7BVUZJJwAKbDNFcRLLBIksbDKujBgfoRWEkOtW9tqUWpXUV5bfZ2Mc/liN9205G0cY9/8AIwLC61jSvDGmail7F9kDLGbQQj5lLEZL9c/TH+KW/wB34gzvfMQSCPevmEbgueceuKfXFpaai/jy9EWp+W32cPnyFPyE8Jz6cc+1VbrxVqiaPp5hbN6jyG8win5Yzg5GOM5HTFJO6B7nfUVyN34kuoJdYvoXEllZxxxwx4G1pGxySOeM9M09rzW9GudOk1K/ivYL2VYXjEIQxM3TaR1H19KaVwOrorlFvNb1m41GXTr+Kyt7KVoUjMIcysvXcT0H0qs/iDU9Sj0E2E0drJf+Yk2YwygrwSM88ckDPpmhagdpUUdxBNJJHFNG7xHEiqwJQ+hHauaubjWW1e20K31NUmW3M8941upL8kABOg7f56nhEXA1jXhdsjTCdAzRjCng8gdqOomdK1xAtwtu00YmcbljLDcR6gdalrn7yd18bafCBHsa2kJJjUt36NjI+gNYkep+IptBu9VTU4kW0mcCI26kyKCOCe34D8aV9P672H1t/W1zu6KgsZzdWNvcMApljVyB2yM1PVNW0EndXCiiikMKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApkiLLG0bjKuCpHqDT6KAMDw14YTQHuHN01y0oCqWTbsUZ46n1/Sq7eE5Qktpb6tNDpczlntBGpPJyQH6ge3866eigDDvvDpa5gutKvW064hiEG5YxIpjHQbT+HNJceHXuNPsraXUZpZLe4W4eaUbzIR1HX5R6elbtFABXLXPhCWaO+to9XlisbpzL9nESna5IOS3UjI6cV1NFAGXDpdxHd2Uv29/Jt7fyXgCkJKcY3Yzx+v1rGk8GXBsbjT4talSwkYukHkqdpyDy2cke3FdbRQ9QWmxlppc6XdnKt/IIbe38loACFkOMbjzj9DWND4NuYdO/s9NcmFnIxM8QhX5wT0U5yvH1rraKPMForIzl0x4tQtJoLuSK1t4fK+yjO1vQnnHH0puvaQus2Kwee0EkcgljlUZKsOhx3rToo3BaHP2Xh25i1uHVbzVXvJo4jGQ0IQHOcYweOvvRD4Vt4tW1O9Mu5b6No/L2Y2bvvHOecn6V0FFAGV4c0RNB0wWiS+cxcu0m3buJ9sntisXxZJbWWtWl2by50y5MZT7WtuJYmXn5CM5z+H/1uvood73BHE+H9Kg1m01rzHnksryceVO4w77f4xkevt7Vu6bpF/b3HnX+sz3u2PZGgQRIPcgH5j7mtmigDkofBtzDp39nprkws5GJniEK/OCeinOV4+ta8Whxwa3DqEUu2OG1+zLDs7A8HOf6VrUUAYN54euJNYl1Cx1SWyNwqpOixK+8Djgn7px3warReEfL0BNL+3E7bkT+aYuvtjP65rp6KFoD13/roYp8PQyajqlzcSCVNQjWMx7MbABjrnnsfwqB/DUzWNgq6k6X9gCsN2IgflPGCpJzxx1roaKAMCfw7PdaHdWF1qs089ywZp5FyFwQcKmcAcdjV/UdOlvLKOG3vp7OaIhkliPUgfxL/ABD2rQooAwbLw7LFNeXV7qLXd5cwmDzfKEYVcf3R1PvSS+GvM8NW2j/a8eQyt5vl/ewc9M/1rfooA5288Myz6heTW+qS21vfKFuIVjVi2Bjhj0/L/wCsz/hFZo7TTVtdUMF3YBkScQBgyt1BUn+v/wBbpaKAOXPhA/2fqdodRd/t8iyGR4gWVgcnOCAc/hitOfRvO1fTr/7Rt+xIybNn39wx1zx+tatFGwGbpek/2fe6hced5n2yXzNuzGz2681Bqmhy3WoJqGn37WF4qeU0giEgdOuCp7571s0UAYV14de60aGwl1CaSRJlmeeUbyxByRjPA9B2q3c6V5+u2mp+dt+zRunl7M7t3fOePyrSooCxS1fT01XS7iydtomXAbGdp7HHsaxJ/BdvPpemWTXHFk5Zm8v/AFoJywxnjP411FFAGJqGgzXGrJqFjqUljIYvJlCxh96ZzxnoffmqsPhCKPQ201rtyUnM8E4XDRt2zzz+mfaulooAwrPQLmOS7nvtVku7i5h8jd5YjVV5x8oOCRk/mabL4a8zw1baP9rx5DK3m+X97Bz0z/Wt+igLGNNosx8QpqttfGEGNY5oTEG8xQc4yTx2qCHwrbxatqd6Zdy30bR+Xsxs3feOc85P0roKKP6+8DA07wta2nh6XSJpDOkxLSSBdhJPQjrjGB+VNtPDc4uraXU9Vlv4rM5t4miCBWHQsQfmI966Gii+tw6WOeuvDVx9qupNN1aWxivDuuIhEHDHuVJ+6T7VMPDcEVxpLWspii03ftjK7i+4c5OeDnnpW3RQtAMXV9CkvdQh1Gxv3sb2JTGZBGJAyc8FT9f88U7QtDbSJ72V7x7prtw5Z1wQRnPI69fQVsUUA9TNn0nztfttU8/HkRNH5ez72e+c/wBKpweG/K8PXmlfa8/aWdvN8v7u4+mefzreopW0sHW5BZwfZbOC33bvKjVN2MZwMZqeiim3cEraBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFZv9oXFzLIum20c6RMUeWaUxoWHULhWJx34A9zzieC8Is2nv4hZGMkP5kgKj3Den1x9KALdFZ17qcaaU13YzQz7mWOJlO9CxYKOh9T61ZgvrS5ieWC6gljj++8cgYL9SDxQBYoqst/ZvI0a3cDOpVSokGQW6DHv2qR7iGMyBpY1aNN7BnA2rzyfQcHn2oAloqgt5O2pW1tsiAaBpZipLBTkBQDxwcnt2qU6jYrai5a9txbk7RKZV2Z9M5xQBaoqH7XbeTHL9oi8uT7j7xhuM8HvwCarvrGloiO+pWapICUYzqAwzjjnnmgC9RVe4v7O1XdcXcEIwDmSQLweh5pJr+zggSea7gjhkxskeQBWyMjBJweKALNFVzfWgtPtZuoBbf89vMGzrj73TrSRX9nPbvcQ3cEkEed8iSAquOTk5wKALNFVBqdgRMRfWxEH+tIlX932+bnj8akF3bG1+1C4i+z43ebvGzHrnpQAy7nljkhigVDJKTguTgYGe1M/4mfpafm1FyQdRsSORl/8A0GganbZuWN1aCGDAZxcD5W6EP2Xn3rRtRS0ISu2H/Ez9LT82o/4mfpafm1B1SzhtoJby7tIPOXcp88bW/wB1jjcPfFTvd20dr9qe4iW3wG80uAmD0OelLn8kPl8yD/iZ+lp+bUf8TP0tPzapBqFkbQ3YvLc2wODMJV2Dt97OKr6hqaw6fFd2ckMySTRoHB3KQzhSQQfc0c3kg5fMk/4mfpafm1H/ABM/S0/Nqmtby1vFZrS5hnVThjE4YA++Kno5/IOXzKX/ABM/S0/NqP8AiZ+lp+bVdoo5/JBy+ZS/4mfpafm1H/Ez9LT82q7RRz+SDl8yl/xM/S0/NqP+Jn6Wn5tV2ijn8kHL5lL/AImfpafm1H/Ez9LT82q7RRz+SDl8yl/xM/S0/NqP+Jn6Wn5tV2ijn8kHL5lL/iZ+lp+bUf8AEz9LT82q7RRz+SDl8yl/xM/S0/NqP+Jn6Wn5tV2ijn8kHL5lL/iZ+lp+bUf8TP0tPzartFHP5IOXzKX/ABM/S0/NqP8AiZ+lp+bVdoo5/JBy+ZSjuLpLuKG5WHEobaYyeMeuau1Suf8AkJ2X0k/kKu0T6MI9QoooqCgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKSlooA56yP2fS102+gvlnjZgGt0lAk+YkMJE4AOeckY71DLbXkEelfa5b0LFExkkgT7Q6THHUFXJGNwBH9a6eigDl57eJPszSJfXUFzdGe4M1qzMdqYXKIgwMheo7VLeQT3Ueo3McEqC9WK1RShDFM4ZyvVeHPXsOcV0dFAGRqUaWj6YsdvILOCUsy28TPtwhC/KoJxk/wAqpXMdzewalILWZDdzR2yBkIbyhgFj6D5nP+cV0lFAHMahaXs2o3l2sbPZxGOJ7UIwa4jUZO09xljwB82MZ7VLeK6ass5e/t7b7Oq27WtqJNvJ3KVMbFT93sOntXRUUAc/BpqG50+AxzS20fm3bNcIM+Yx4yAAAfmY4xxinXbMl/cSafHci9kwjRS2rGGXHQl8cDBP8WPYng71FAGTBEV1LUb5rY7okWGH5Dkqq7jt9iWxx6Vnwi6s4rKyf7TbxR26sJbe1MrtIc7lztYIBx1HfqMV01FAHL232y002zSRLhFuHkmnmFr5ssbFtyjYoIDc9dpAx0ojtLma0uxItzIb29SMtPCA5iXAJYKAMEBuoHBFdRRQBlLaK+vmdrZRFaW6pC3l9GJOdv0AA49aj09RDpNtFdWcspvJWZ4/KyIy7F/nB6AdPrWzRQBSuv8AkI2P1f8A9BqCAj+2tS56QxZ/8fqW/cQ3dpNJkRoX3MATjK8dKp7NHELxCW5Adtzt5029uMctncRjsTitJQlKKsun6shNJu5StJZ003ScNPDbm0H7+2t/Ok3cfL91sDHPTnA5osree2stNmnt7ho7a5nMkZj3OuWYK21RzjP8I75HFbMWo6fDEkUT7I0AVVWNgAB0A4p39q2X/PU/98N/hQ4T7MfNHuUbuRZZ7K/S1uDbwzMZF8hg+Su0PsxuOOnTP4VRvbaSe2vZ1tJfs9xeW7rEYjuYKy72KYyM47jPGa3P7Vsv+ep/74b/AAo/tWy/56n/AL4b/Ckqc072Dmj3K9o5u9Ze7ihmjgWDymaWJoy7bsjCsAcAZ5x/F9a1apf2rZf89T/3w3+FH9q2X/PU/wDfDf4Uezn2Yc0e5doql/atl/z1P/fDf4Uf2rZf89T/AN8N/hR7OfZhzR7l2iqX9q2X/PU/98N/hR/atl/z1P8A3w3+FHs59mHNHuXaKpf2rZf89T/3w3+FH9q2X/PU/wDfDf4Uezn2Yc0e5doql/atl/z1P/fDf4Uf2rZf89T/AN8N/hR7OfZhzR7l2iqX9q2X/PU/98N/hR/atl/z1P8A3w3+FHs59mHNHuXaKpf2rZf89T/3w3+FH9q2X/PU/wDfDf4Uezn2Yc0e5doql/atl/z1P/fDf4Uf2rZf89T/AN8N/hR7OfZhzR7l2iqX9q2X/PU/98N/hR/atl/z1P8A3w3+FHs59mHNHuXaKpf2rZf89T/3w3+FH9q2X/PU/wDfDf4Uezn2Yc0e4XP/ACE7L6SfyFXazftEV3qVqYCXEYfcdpGMgY61pUTTSSf9asIu9woooqCgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK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AOJo3XH/ADyi/wC/h/8AiaAJqKh3XH/PKL/v4f8A4mjdcf8APKL/AL+H/wCJoAmoqHdcf88ov+/h/wDiaN1x/wA8ov8Av4f/AImgCaiod1x/zyi/7+H/AOJo3XH/ADyi/wC/h/8AiaAJqKh3XH/PKL/v4f8A4mjdcf8APKL/AL+H/wCJoAmoqHdcf88ov+/h/wDiaN1x/wA8ov8Av4f/AImgCaiod1x/zyi/7+H/AOJo3XH/ADyi/wC/h/8AiaABv+PuP/rm/wDNamqBVladXkVFCqR8rE5yR7D0qegAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACobo4tJiP7jfyqaobv/jzn/wCubfyoAT7Nb/8APCL/AL4FH2a3/wCeEX/fAp+ayfENtb3MNr9ogilxcxgb0DYBYZHPrQBp/Zrf/nhF/wB8CmtHaLIkbRwB3ztUgZbHXA71Qkur6TVZrG0a2ijhhjkDyRs5ySwxgMP7o/8Ar54rLdm7vNFuXUIzpKWAOQDt5oA2vs1v/wA8Iv8AvgUfZrf/AJ4Rf98CsePVrz7JBqTrB9jnkVREFIkRWbaG3ZwTyCRgdevHKXWqX5sr6+tTbJBamRVjkjZmkKZBOQwwMjpg9PfgCxs/Zrf/AJ4Rf98Cj7Nb/wDPCL/vgVQe7vLi/ltrNoIlt1UyPLGX3FuQAAwxwOvPXpVP+3Z2s9PwoW4u4TKzLbyTKgGM/IvJ5I7j+lAeZt/Zrf8A54Rf98Cj7Nb/APPCL/vgVjf2vem0iIhUStdrb7pYXiV1IzuCt8w/XkGrtjdXJvbmzu2ikkiVJBJEhQENkYwSeQVPfvQBc+zW/wDzwi/74FLanNpCT/cX+VOzTbT/AI84P+ua/wAqAJqKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKqW0ELW0TNDGWKAklRk8Vbqtan/RIf9xf5UAO+zW//ADwi/wC+BR9mt/8AnhF/3wKz9e+Syjux1tJkmz6KDhv/AB0tVD7Sttq8+puw8mYSQ/8AfsAj9RJSCxv/AGa3/wCeEX/fAo+zW/8Azwi/74FYUc9xp1jZW8c8EUrRGSSP7LJcOWJyTtQggZJ5NTw6vc3kFglukUVzdI7s0isVQIQD8uQTkkYGR+mKYGo0dojojRwK752qQAWx1x6077Nb/wDPCL/vgVjXwvhfaUrSW5uPMlAcIwTGw4O3Ofwz+NQ6je37adcRiaKO4t7yKIyxowDglD03ZH3sEZOcH14AN/7Nb/8APCL/AL4FH2a3/wCeEX/fArOm1C5sJhHdmKUG3eQPFGVyykfKASeoI79jUVprM8i26zxIkqrKbpVBITy+Pl57kgjPagDW+zW//PCL/vgUfZrf/nhF/wB8CsmDUr5YrO7uRbm3u2VREikPFu+7lskN2B4HX2psmrXn2W61GMQfY7Z3UxFT5jqhwx3ZwDkHAwenXngA2Ps1v/zwi/74FNkitIk3SRwIuQMsoAyTgfrVGO8vbnU7mCFreOGDyzudGZmDDJGMjH1/Ss+/uby/0sXQeCO0a4jCxeWS5AlUZ3bsDJGcbfb3oBanQfZrf/nhF/3wKPs1v/zwi/74FE8nlwSPuRNqk7pDhRx1PtWPp+rXEuoRW8zxzJNGzCRLSWEAjHQuSHBz1B/nQBsfZrf/AJ4Rf98Cj7Nb/wDPCL/vgViQ6zcfbbdGlguIZpfLzDayqo4OCJSSrdMdv0pZdU1Bba/u1+zCGyldTGUYtIq4PXcAp69jQtQNr7Nb/wDPCL/vgUfZrf8A54Rf98CqMupm1u7pLkKIkg8+Igcso4Ye5Bx/30KgW91SS6t7TFrFLJbedIzIzBG3AYAyM9cdR6+1H9f19wGr9mt/+eEX/fAo+zW//PCL/vgVh6nrN1YvcOs0EyW+C0UdpK5xgEhpAdqHr1HAxmrr3d3cX81tZtBEtuqmR5Yy5YtyAAGGOB1569KOlwL/ANmt/wDnhF/3wKPs1v8A88Iv++BWGNduJLWxCqEnuIPOd1tpJlXoMBU55z1J4x3qT+1r5re0CQok01yYC00ToCNpO8KcEdOh9xnvQBsfZrf/AJ4Rf98Cj7Nb/wDPCL/vgVUsLm4e4uba6MTyQFSHiUqGDDPQk4PB71ezQA21ObSEn+4v8qmqG0/484P+ua/yqagAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKhvP+POf/rm38qmpsiCSNkbowINAEeap6hY/b1jX7VPAI3DjygnJByM7lPSrX2Zv+fmX8l/wo+zN/z8y/kv+FAEMdpHHeyXYZzJJGsbZxjCkkHp1+Y1FDpkEJtCrSH7KGCZI53dc8Vb+zN/z8y/kv8AhR9mb/n5l/Jf8KAM+PRoEZF8+draN/MS2JXy1YHI7bsA8gEke3ArP1HTrm4N3aW8V5FDcsckSxeSS2Mt/fHfgcE+xNdB9mb/AJ+ZfyX/AAo+zN/z8y/kv+FAGTqEE6XxltYb3LxqHa3kiCvjOAwfkY9V559hUlvpATT7GFppIrm1jCrNCRkccj5gQQfcVpfZm/5+ZfyX/Cj7M3/PzL+S/wCFAFQ6erxxLPczzNHMJg7lckjoMAAY+gFTJbRpey3QLeZKiowJ4wpYjH/fRqX7M3/PzL+S/wCFH2Zv+fmX8l/woAdmiz/484P+ua/ypv2Zv+fmX8l/wqaNBHGqL0UACgB1FFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFVLU/6JD/ALi/yq3VZbTYoVZ5QoGAPl4H5UAJPElxBJBKMxyKVYeoPFZ8uh2k2lQ6c7SmKIhg24bmPfJx3yc+uTWl9mb/AJ+ZfyX/AAo+zN/z8y/kv+FAFS408S3YuYrma3l2BGMW351ByAdwPqemDzUY0eFLa3ihmnie3LGKZWBcZ6g5BBB9we3er/2Zv+fmX8l/wo+zN/z8y/kv+FAFVLBRJbSS3E00luzMHcrliwxzgAdPTFNm0uCaO6RmkH2mRZGIIyjKFAK8dtoPOaufZm/5+ZfyX/Cj7M3/AD8y/kv+FAFOXTUnS2FzPNM1vL5quxUFjzwdoAxz6dhT4tPt4r64u1B8y4VVdSfl4749Txn6CrP2Zv8An5l/Jf8ACj7M3/PzL+S/4UAZ9vo8UDQg3FxJDAcwwOy7Iz2xgZOBwMk0SaPDI0i+fOttK++S2BXy3J69twBPJAIB/E1ofZm/5+ZfyX/Cj7M3/PzL+S/4UAQw2scN1PcKW3z7dwPQbRgYqo+ixMpj+1XK2/mCQQBl2qwYNwdu7GR0Jxz9MaP2Zv8An5l/Jf8ACj7M3/PzL+S/4UAMuYI7q2kt5l3RyqUYZxkGqkOmBJ4ppru5uHiVlXzCoABAB4VR6detXvszf8/Mv5L/AIUfZm/5+ZfyX/CgDOh0aOLyF+1XLQ2zhoYiV2pgEAcKCRg9yalfTIHs7y1LybLtnZzkZG4c44q59mb/AJ+ZfyX/AAo+zN/z8y/kv+FAFS+023v3tmmLg27h12nG7/ZPqDgcewqY2sZvxeZbzBGYsZ4wTn8+Kl+zN/z8y/kv+FH2Zv8An5l/Jf8ACgDNudFiuFuY/tVzFBckmSGMqFJIwTnbu/DOPao9QgnS+MtrBe5eNQ7W8kQV8ZwGD8jHqvPPsK1vszf8/Mv5L/hR9mb/AJ+ZfyX/AAo6WAzLbRxHY2SGeSG5tYvLE0JGcEDI+YEEZA6jtVj+z1YW5muJ5ngl80O5XLHBGDgAYwewFW/szf8APzL+S/4UfZm/5+ZfyX/CgCKO3SK6nuFLb5goYHoNo4x+dT5pv2Zv+fmX8l/wo+zN/wA/Mv5L/hQA6z/484P+ua/yqamxoI41ReigAU6gAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKz9XuJrNba5jfEKTKs64ByjfLnPbBIP4VoVDeW0d5aTW0ozHKhRvoRQBSvNQMGp7GlEdrbW7T3LYzweFH6MeOeBUltqizTpDNa3Fo8il4xOF+cDrjaTgjjg4P61StdGupNIu4NSuI2u7oYaWIEhQFAXr16ZPuTU8dpe3V3bzagtvGLdWCrA7PvZhgk5UYGO3PXrxyAOi1qGVo28idLaV9kVywXy3OcDHO4Z7EgA/iMyW+pi5uZIYbW4YRStFJLhQqkfU5I+gPviqUWlXv2S106UwCztnRhKrEyOqEFQVxgdBk5PTpzxf020ktPtXmFT51w8q7T0Bx196P6/L/gg/6/H/gEtxdx289vFIG/0hyisB8obBOD9cHFVrrWbe1W4d45mSCVImKJuyzY4A6nG4Z/TNS6paPeWLxxMqTrh4XborqcqT7ZH5VTfSZm0iG23xm48+OeZyThmEgdsd/UD8KFvqDLLahOoTGlXrO+75QYuAMck78c54Gc8HimjWLdrSGdI5meZzGkAUeYXGcrycDGDk5xx1qPVtOlvLqGUQW13CisDbXLlU3HGH+6wJAyOR361QayOj2NpJJNZQvb3MjIHYxwkOW+XOPl4PoemKOgGnHq8RjuGnhnt2t2VXSQKWJboBtJBzkdPWlXVUHmrcWtxbSRxNMI5NhLqOpBViOOO/cVlQ2ra5b6kzNAUlljMbKPMiYoFOMnG9cjBPHerUGlMsVyq6Zplk0kDRh7Y5LE+p2Lgfn+lJ3sNFq21dJ5bdWtbiFLlcwyShQH43YwCSDjJ5A6GrN7dxWNs0824gEKFUZZmJwFA9STiqv9ny40kbk/0M5k5PP7tl449TUuqWb3lqqwuqTRSLLGW+6WU5wfY9Pxqna+hKvbUhbWY4orhri2uYJLdPNeFwpYp/eG1iCOvfPH0qzJfQx3EUPLGRGk3D7qqMck+nIqvb2dxNfPeX6QoTF5KxROXG0nJJYgZz6Y7d88Qabo8sENzHeSrJvT7PEVzlYRnaDn+Lnn6Ck72/r+uw/6/r8SxDqySyQhrW5iinOIZnC7ZDjI4BLDIGfmA/OnWWqLfSMILW58tXeNpWChQykgjrk9OoBH64oabozWc0AbS9JHlHH2qNcSMAODt2cE8Z+b1rQ0mzksbR4pSpZppZPlPGGcsP0NPQCeS5SO6ht2Db5gxUjoNuM5/Oq51a3DSArIBHcrbMcDG4gEHr0+YD60t/b3D3FtdWgieSDcDHK5QMGH94A4PA7VSXSrtrHU0laAXF1N58RUkqjBV254zwV6/wD6qS8wLLa1aA3o/eFrNlVwAMsW4G3nnnI+oNaEjbI2fazbQTtUZJ9hWM2iOZrF1ePCf8fQx/rSDvBHvv5+hNal7DJcWU8MMxhkkQqsi9UJHWh7Atyvb6n5tykE9nc2jyIXTztmGAxnlWODyODikttUF06GGzuWtnJC3OFCHrzjduxx1x+lUbHRXivoLhrKwtRGjpIYGLPJkDksVGe/XP1qzp1rf2cENg62zWsK7BMJG3sgHHybcA9Od1AEtvqq3LI0Vpcm2cnbdEKIyBnnG7djjrj9Oabb6zFO0JNvcRQXBxBPIqhJD2xgkjI5GQKjsbO+trSPTpFtmtI0MXnCRt7JggfLtwD053VHBp1+0VlaXRtxb2bKwljYl5dn3cqQAvYnk9PegGW21WBdPlvSknlxSNGwwM5DbTjn1ps+qiO6mtorO6uJIFVn8oKAAQccsw9OnWqVxpeoNZXNhF9l8mWZpVlZ23cvuKlduPUZz+FaENnJHqV7cErsnRFUA8jaDnP50n5B1Kk2tSfbrFLS0kure6gaYMm0McbcY3MMdec+o960hc5vfs3kTD935nm7fk6425/ve1ZcWmXlpHpjwCCWa0gMLo8hRWyF5DBSeq+netQfavtvPk/ZfL99+/P5bcfjVAT0UUUgCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACsvxFq/9h6W175Hn4dV2b9vX3wa1K53x3bT3fhx4raGSaQyodkaljjPoKTGjVt7i8wZL2C1t4Am4ulyXx9cooA981J/aFl5MU32uDypm2xv5g2ufQHPJqnJpKDS7mKBrgyzW7RgS3EkgyV9GYgVyfkXT6DoNiLG9Fxa3itMptpAFUM3O7GMcjvVdbE9Lnby6lYQtKs17bRmIgSB5VGzPTPPGaka6t0tvtLTxLb7Q3mlwFwehz0xXM21hL/wkniK4ktH2yQqsMjRnDfJyFPft0rOttMvx4d0B5rWd47O4aS4tih343nB29Tj096S1X3DZ0uoeJtKsbFrv7VFcorBdtvIrsSfxp8+pGWexOn3umtBNIVfzJcs4GOI8HBP/ANasvxSG1fw/eLYWdy0qmMndbtGzgNnADAE45/OjWFlv9W8PXNtbXJiinYyFoHXZ937wI4prf5g9vkzfuNSsbWYQ3N7bwysAQkkqqxz7E0+a7toJFjmuIo3cEqruAWA6kA+lciLaeyi8RW13Y3E8987NBJHC0iyKQQo3AEDB9cYpV0m8TU/DEd3A8/2aJxM+0uqHHy5PTjjH0pLUHoddbXdtdxGW1uIp4wcb43DD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gAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigBGUMpVgCpGCD0NRWlrFZ2yW9urLFGMKpYtgemSSamooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACmSxrNE0b7grjB2sVP4Ecj8KfRQBHBDHbwJDCgSONQqqOwFSUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB//Z"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>User navigated to test URL: URL</div>
+							<div class='pre'>Entered text : jjacob</div>
+							<div class='pre'>Entered text : jjacob</div>
+							<div class='pre'><pre>java.lang.AssertionError: this is failed because of exception null
+	at org.junit.Assert.fail(Assert.java:88)
+	at steps.DefinedSteps.user_navigates_to_application_login(DefinedSteps.java:113)
+	at ?.Given User launched browser and logged in to Tracy successfully(Tr@cy Analysis.feature:5)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@sanitycheck</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 16, 2020 12:33:32 PM</td>
+										<td class='linked' test-id='3'>Demo & Analysis Script.Glasvezel Aansluiting 1 Gbps onnet Korting eenmalig 24 maanden 1 N 50%.Glasvezel Aansluiting 1 Gbps onnet Korting eenmalig 24 maanden 1 N 50%</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>java.lang.AssertionError</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Apr 16, 2020 12:33:32 PM</td>
+                                                        <td class='linked' test-id='4'>Demo & Analysis Script.Glasvezel Aansluiting 1 Gbps onnet Korting eenmalig 24 maanden 1 N 50%.Glasvezel Aansluiting 1 Gbps onnet Korting eenmalig 24 maanden 1 N 50%.Given User launched browser and logged in to Tracy successfully</td>
+                                                        <td><pre><pre>java.lang.AssertionError: this is failed because of exception null
+	at org.junit.Assert.fail(Assert.java:88)
+	at steps.DefinedSteps.user_navigates_to_application_login(DefinedSteps.java:113)
+	at ?.Given User launched browser and logged in to Tracy successfully(Tr@cy Analysis.feature:5)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Apr 16, 2020 12:33:32 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Apr 16, 2020 12:33:45 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>13,104ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>User Name</td>
+								<td>VanteriN</td>
+							</tr>
+							<tr>
+								<td>Time Zone</td>
+								<td>Europe/Berlin</td>
+							</tr>
+							<tr>
+								<td>Machine</td>
+								<td>Windows 10</td>
+							</tr>
+							<tr>
+								<td>Java Version</td>
+								<td>1.8.0_77-b03</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+						</tr>
+						<tr>
+							<td>@sanitycheck</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<div id='testrunner-logs-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>TestRunner Logs</h5>
+		
+		<div class='card-panel'>
+				Automation-Test-Report
+		</div>
+	</div>
+</div>
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 0,
+				failChild: 1,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 1,
+				
+				passGrandChild: 0,
+				failGrandChild: 1,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 1,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/5ed7b0c339b51aa347b44ccaa2e2ff29905b2f9f/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+	</body>
+	
+</html>
