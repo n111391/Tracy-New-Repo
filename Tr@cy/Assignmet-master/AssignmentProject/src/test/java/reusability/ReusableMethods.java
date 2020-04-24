@@ -128,6 +128,7 @@ public class ReusableMethods {
 					System.setProperty("webdriver.chrome.driver", readConfig("ChromeDriver"));
 					ChromeOptions options = new ChromeOptions();
 					options.addArguments("--incognito");
+					options.addArguments("disable-gpu");
 					DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 					capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 					driver = new ChromeDriver(capabilities);
