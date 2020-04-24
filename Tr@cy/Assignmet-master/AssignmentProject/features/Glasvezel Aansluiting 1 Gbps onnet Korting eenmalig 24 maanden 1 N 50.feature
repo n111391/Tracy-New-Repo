@@ -1,6 +1,6 @@
 Feature: Glasvezel Aansluiting 1 Gbps onnet Korting eenmalig 24 maanden 1 N 50
 
- @test1
+ @test22
   Scenario: Glasvezel Aansluiting 1 Gbps onnet Korting eenmalig 24 maanden 1 N 50%
    Given User launched browser and logged in to Tracy successfully
    Then User opens menu item "Aanmaken>Contractkaart>Office plus>nieuw"
